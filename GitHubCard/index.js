@@ -8,7 +8,7 @@ https://api.github.com/users/<your name>
 
 axios.get('https://api.github.com/users/RemyVila')
     .then(res => {
-      <h1> {res.data.id} </h1>;
+      document.createElement({res.data.id});
       console.log(res.data.id);
     })
     .catch(err => {
