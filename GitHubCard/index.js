@@ -1,8 +1,36 @@
+import axios from 'axios';
+
 /*
-  STEP 1: using axios, send a GET request to the following URL
-    (replacing the placeholder with your Github name):
-    https://api.github.com/users/<your name>
+STEP 1: using axios, send a GET request to the following URL
+(replacing the placeholder with your Github name):
+https://api.github.com/users/<your name>
 */
+axios.get('https://api.github.com/users/RemyVila')
+    .then(res => {
+      // return <h1> {res.data.id} </h1>;
+      getGitInfo(res.data);
+      console.log(res.data);
+      
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    
+    const entrypoint = document.querySelector('.cards')
+
+  const getGitInfo = function(res){
+    let div = document.createElement('div');
+      div.classList.add('card');
+      
+      let proPic = document.createElement('img');
+        div.appendChild(proPic);
+        proPic.src = res.avatar_url;
+      
+      
+    
+    entrypoint.appendChild(div);
+    return div;
+  }
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -49,6 +77,29 @@ const followersArray = [];
       </div>
     </div>
 */
+
+const entrypoint = document.querySelector('.cards')
+
+  const getGitInfo = function(res){
+    let div = document.createElement('div');
+      div.classList.add('card');
+      
+      let proPic = document.createElement('img');
+        div.appendChild(proPic);
+        proPic.src = res.avatar_url;
+
+      let miniHead = document.createElement('h2');
+        miniHead.textContent = data.login;
+        div.appendChild(miniHead);
+
+//       let
+      
+      
+    
+    return div;
+  }
+  
+
 
 /*
   List of LS Instructors Github username's:
